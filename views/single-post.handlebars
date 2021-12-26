@@ -1,0 +1,35 @@
+<article class="blog-post">
+  <h2 class="blog-post-title">
+    <a href="/post/{{post.id}}" target="_blank">{{post.title}}</a>
+  </h2>
+  <div class="container pt-4">
+    {{post.content}}
+  </div>
+</article>
+
+<section class="my-5">
+  <p class="blog-post-meta">
+      <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+  </p>
+  <form id="comment-form">
+    <div class="mb-3">
+        <label for="title" class="form-label">Comment</label>
+        <textarea class="form-control" id="comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">add comment</button>
+  </form>
+  <div class="my-5">
+    {{#each post.comments}}
+    <div class="toast show w-100">
+      <div class="toast-header">
+        <strong class="me-auto">{{user.username}}</strong>
+        <small>{{created_at}}</small>
+      </div>
+      <div class="toast-body">
+        {{comment_text}}
+      </div>
+    </div>
+  {{/each}}
+  </div>
+</section>
+<script src="/javascript/comment.js"></script>

@@ -1,0 +1,16 @@
+<h3 class="pb-4 mb-4 border-bottom">
+  Recent Articles
+</h3>
+  {{#each posts as |post|}}
+    <article class="blog-post">
+      <h2 class="blog-post-title">
+        <a href="/post/{{post.id}}" target="_blank">{{post.title}}</a>
+      </h2>
+      <p class="blog-post-meta">
+        <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+      </p>
+      <div class="container">
+        {{post.content}}
+      </div>
+    </article>
+  {{/each}}
